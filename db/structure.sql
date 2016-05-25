@@ -1,4 +1,3 @@
-/****** Object:  Table [dbo].[Announcement]    Script Date: 2016-05-25 16:51:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -15,7 +14,6 @@ CREATE TABLE [dbo].[Announcement](
 )
 
 GO
-/****** Object:  Table [dbo].[Award]    Script Date: 2016-05-25 16:51:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -32,7 +30,6 @@ CREATE TABLE [dbo].[Award](
 )
 
 GO
-/****** Object:  Table [dbo].[AwardRecipient]    Script Date: 2016-05-25 16:51:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -49,7 +46,6 @@ CREATE TABLE [dbo].[AwardRecipient](
 )
 
 GO
-/****** Object:  Table [dbo].[Dues]    Script Date: 2016-05-25 16:51:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -69,7 +65,6 @@ CREATE TABLE [dbo].[Dues](
 )
 
 GO
-/****** Object:  Table [dbo].[Evaluation]    Script Date: 2016-05-25 16:51:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -86,7 +81,6 @@ CREATE TABLE [dbo].[Evaluation](
 )
 
 GO
-/****** Object:  Table [dbo].[GrammarianReport]    Script Date: 2016-05-25 16:51:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -104,7 +98,6 @@ CREATE TABLE [dbo].[GrammarianReport](
 )
 
 GO
-/****** Object:  Table [dbo].[GrammarianReportLine]    Script Date: 2016-05-25 16:51:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -119,7 +112,6 @@ CREATE TABLE [dbo].[GrammarianReportLine](
 )
 
 GO
-/****** Object:  Table [dbo].[Manual]    Script Date: 2016-05-25 16:51:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -135,7 +127,6 @@ CREATE TABLE [dbo].[Manual](
 )
 
 GO
-/****** Object:  Table [dbo].[Meeting]    Script Date: 2016-05-25 16:51:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -154,7 +145,6 @@ CREATE TABLE [dbo].[Meeting](
 )
 
 GO
-/****** Object:  Table [dbo].[MeetingAward]    Script Date: 2016-05-25 16:51:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -171,7 +161,6 @@ CREATE TABLE [dbo].[MeetingAward](
 )
 
 GO
-/****** Object:  Table [dbo].[MeetingAwardType]    Script Date: 2016-05-25 16:51:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -186,7 +175,6 @@ CREATE TABLE [dbo].[MeetingAwardType](
 )
 
 GO
-/****** Object:  Table [dbo].[MeetingParticipant]    Script Date: 2016-05-25 16:51:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -203,7 +191,6 @@ CREATE TABLE [dbo].[MeetingParticipant](
 )
 
 GO
-/****** Object:  Table [dbo].[MemberStatus]    Script Date: 2016-05-25 16:51:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -218,7 +205,6 @@ CREATE TABLE [dbo].[MemberStatus](
 )
 
 GO
-/****** Object:  Table [dbo].[OfficerRole]    Script Date: 2016-05-25 16:51:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -233,7 +219,6 @@ CREATE TABLE [dbo].[OfficerRole](
 )
 
 GO
-/****** Object:  Table [dbo].[OfficerService]    Script Date: 2016-05-25 16:51:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -251,7 +236,6 @@ CREATE TABLE [dbo].[OfficerService](
 )
 
 GO
-/****** Object:  Table [dbo].[ParticipantRole]    Script Date: 2016-05-25 16:51:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -266,7 +250,6 @@ CREATE TABLE [dbo].[ParticipantRole](
 )
 
 GO
-/****** Object:  Table [dbo].[Person]    Script Date: 2016-05-25 16:51:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -285,7 +268,6 @@ CREATE TABLE [dbo].[Person](
 )
 
 GO
-/****** Object:  Table [dbo].[Project]    Script Date: 2016-05-25 16:51:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -304,7 +286,6 @@ CREATE TABLE [dbo].[Project](
 )
 
 GO
-/****** Object:  Table [dbo].[Speech]    Script Date: 2016-05-25 16:51:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -323,7 +304,6 @@ CREATE TABLE [dbo].[Speech](
 )
 
 GO
-/****** Object:  Table [dbo].[TableTopic]    Script Date: 2016-05-25 16:51:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -341,205 +321,171 @@ CREATE TABLE [dbo].[TableTopic](
 )
 
 GO
-/****** Object:  Index [IX_Announcement_ActiveFrom]    Script Date: 2016-05-25 16:51:45 ******/
 CREATE NONCLUSTERED INDEX [IX_Announcement_ActiveFrom] ON [dbo].[Announcement]
 (
 	[ActiveFrom] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 GO
-/****** Object:  Index [IX_Announcement_ActiveUntil]    Script Date: 2016-05-25 16:51:45 ******/
 CREATE NONCLUSTERED INDEX [IX_Announcement_ActiveUntil] ON [dbo].[Announcement]
 (
 	[ActiveUntil] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 GO
-/****** Object:  Index [IX_AwardRecipient_Award]    Script Date: 2016-05-25 16:51:45 ******/
 CREATE NONCLUSTERED INDEX [IX_AwardRecipient_Award] ON [dbo].[AwardRecipient]
 (
 	[Award] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 GO
-/****** Object:  Index [IX_AwardRecipient_Date]    Script Date: 2016-05-25 16:51:45 ******/
 CREATE NONCLUSTERED INDEX [IX_AwardRecipient_Date] ON [dbo].[AwardRecipient]
 (
 	[DateAwarded] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 GO
-/****** Object:  Index [IX_AwardRecipient_Person]    Script Date: 2016-05-25 16:51:45 ******/
 CREATE NONCLUSTERED INDEX [IX_AwardRecipient_Person] ON [dbo].[AwardRecipient]
 (
 	[Person] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 GO
-/****** Object:  Index [IX_Dues_DatePaid]    Script Date: 2016-05-25 16:51:45 ******/
 CREATE NONCLUSTERED INDEX [IX_Dues_DatePaid] ON [dbo].[Dues]
 (
 	[DatePaid] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 GO
-/****** Object:  Index [IX_Dues_PaidThroughDate]    Script Date: 2016-05-25 16:51:45 ******/
 CREATE NONCLUSTERED INDEX [IX_Dues_PaidThroughDate] ON [dbo].[Dues]
 (
 	[PaidThroughDate] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 GO
-/****** Object:  Index [IX_Dues_PaymentType]    Script Date: 2016-05-25 16:51:45 ******/
 CREATE NONCLUSTERED INDEX [IX_Dues_PaymentType] ON [dbo].[Dues]
 (
 	[PaymentType] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 GO
-/****** Object:  Index [IX_Dues_Person]    Script Date: 2016-05-25 16:51:45 ******/
 CREATE NONCLUSTERED INDEX [IX_Dues_Person] ON [dbo].[Dues]
 (
 	[Member] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 GO
-/****** Object:  Index [IX_Evaluation_Evaluator]    Script Date: 2016-05-25 16:51:45 ******/
 CREATE NONCLUSTERED INDEX [IX_Evaluation_Evaluator] ON [dbo].[Evaluation]
 (
 	[Evaluator] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 GO
-/****** Object:  Index [IX_Evaluation_Speech]    Script Date: 2016-05-25 16:51:45 ******/
 CREATE NONCLUSTERED INDEX [IX_Evaluation_Speech] ON [dbo].[Evaluation]
 (
 	[Speech] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 GO
-/****** Object:  Index [IX_GrammarianReport_LineItem]    Script Date: 2016-05-25 16:51:45 ******/
 CREATE NONCLUSTERED INDEX [IX_GrammarianReport_LineItem] ON [dbo].[GrammarianReport]
 (
 	[Item] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 GO
-/****** Object:  Index [IX_GrammarianReport_Meeting]    Script Date: 2016-05-25 16:51:45 ******/
 CREATE NONCLUSTERED INDEX [IX_GrammarianReport_Meeting] ON [dbo].[GrammarianReport]
 (
 	[Meeting] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 GO
-/****** Object:  Index [IX_GrammarianReport_Speaker]    Script Date: 2016-05-25 16:51:45 ******/
 CREATE NONCLUSTERED INDEX [IX_GrammarianReport_Speaker] ON [dbo].[GrammarianReport]
 (
 	[Speaker] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 GO
-/****** Object:  Index [IX_Meeting_EndTime]    Script Date: 2016-05-25 16:51:45 ******/
 CREATE NONCLUSTERED INDEX [IX_Meeting_EndTime] ON [dbo].[Meeting]
 (
 	[EndTime] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 GO
-/****** Object:  Index [IX_Meeting_StartTime]    Script Date: 2016-05-25 16:51:45 ******/
 CREATE NONCLUSTERED INDEX [IX_Meeting_StartTime] ON [dbo].[Meeting]
 (
 	[StartTime] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 GO
-/****** Object:  Index [IX_MeetingAward_Meeting]    Script Date: 2016-05-25 16:51:45 ******/
 CREATE NONCLUSTERED INDEX [IX_MeetingAward_Meeting] ON [dbo].[MeetingAward]
 (
 	[Meeting] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 GO
-/****** Object:  Index [IX_MeetingAward_Person]    Script Date: 2016-05-25 16:51:45 ******/
 CREATE NONCLUSTERED INDEX [IX_MeetingAward_Person] ON [dbo].[MeetingAward]
 (
 	[Person] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 GO
-/****** Object:  Index [IX_MeetingAward_Type]    Script Date: 2016-05-25 16:51:45 ******/
 CREATE NONCLUSTERED INDEX [IX_MeetingAward_Type] ON [dbo].[MeetingAward]
 (
 	[AwardType] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 GO
-/****** Object:  Index [IX_MeetingParticipant_Meeting]    Script Date: 2016-05-25 16:51:45 ******/
 CREATE NONCLUSTERED INDEX [IX_MeetingParticipant_Meeting] ON [dbo].[MeetingParticipant]
 (
 	[Meeting] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 GO
-/****** Object:  Index [IX_MeetingParticipant_Person]    Script Date: 2016-05-25 16:51:45 ******/
 CREATE NONCLUSTERED INDEX [IX_MeetingParticipant_Person] ON [dbo].[MeetingParticipant]
 (
 	[Person] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 GO
-/****** Object:  Index [IX_MeetingParticipant_Type]    Script Date: 2016-05-25 16:51:45 ******/
 CREATE NONCLUSTERED INDEX [IX_MeetingParticipant_Type] ON [dbo].[MeetingParticipant]
 (
 	[ParticipantType] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 GO
-/****** Object:  Index [IX_OfficerService_BeginTerm]    Script Date: 2016-05-25 16:51:45 ******/
 CREATE NONCLUSTERED INDEX [IX_OfficerService_BeginTerm] ON [dbo].[OfficerService]
 (
 	[BeginTerm] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 GO
-/****** Object:  Index [IX_OfficerService_EndTerm]    Script Date: 2016-05-25 16:51:45 ******/
 CREATE NONCLUSTERED INDEX [IX_OfficerService_EndTerm] ON [dbo].[OfficerService]
 (
 	[EndTerm] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 GO
-/****** Object:  Index [IX_OfficerService_Person]    Script Date: 2016-05-25 16:51:45 ******/
 CREATE NONCLUSTERED INDEX [IX_OfficerService_Person] ON [dbo].[OfficerService]
 (
 	[Person] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 GO
-/****** Object:  Index [IX_OfficerService_Role]    Script Date: 2016-05-25 16:51:45 ******/
 CREATE NONCLUSTERED INDEX [IX_OfficerService_Role] ON [dbo].[OfficerService]
 (
 	[Role] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 GO
-/****** Object:  Index [IX_Person_MemberSince]    Script Date: 2016-05-25 16:51:45 ******/
 CREATE NONCLUSTERED INDEX [IX_Person_MemberSince] ON [dbo].[Person]
 (
 	[MemberSince] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 GO
-/****** Object:  Index [IX_Person_Status]    Script Date: 2016-05-25 16:51:45 ******/
 CREATE NONCLUSTERED INDEX [IX_Person_Status] ON [dbo].[Person]
 (
 	[Status] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 GO
-/****** Object:  Index [IX_Project_Manual]    Script Date: 2016-05-25 16:51:45 ******/
 CREATE NONCLUSTERED INDEX [IX_Project_Manual] ON [dbo].[Project]
 (
 	[Manual] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 GO
-/****** Object:  Index [IX_Speech_Meeting]    Script Date: 2016-05-25 16:51:45 ******/
 CREATE NONCLUSTERED INDEX [IX_Speech_Meeting] ON [dbo].[Speech]
 (
 	[Meeting] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 GO
-/****** Object:  Index [IX_Speech_Project]    Script Date: 2016-05-25 16:51:45 ******/
 CREATE NONCLUSTERED INDEX [IX_Speech_Project] ON [dbo].[Speech]
 (
 	[Project] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 GO
-/****** Object:  Index [IX_Speech_Speaker]    Script Date: 2016-05-25 16:51:45 ******/
 CREATE NONCLUSTERED INDEX [IX_Speech_Speaker] ON [dbo].[Speech]
 (
 	[Speaker] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 GO
-/****** Object:  Index [IX_TableTopic_Meeting]    Script Date: 2016-05-25 16:51:45 ******/
 CREATE NONCLUSTERED INDEX [IX_TableTopic_Meeting] ON [dbo].[TableTopic]
 (
 	[Meeting] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 GO
-/****** Object:  Index [IX_TableTopic_Speaker]    Script Date: 2016-05-25 16:51:45 ******/
 CREATE NONCLUSTERED INDEX [IX_TableTopic_Speaker] ON [dbo].[TableTopic]
 (
 	[Speaker] ASC
