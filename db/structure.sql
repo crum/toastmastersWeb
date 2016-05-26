@@ -138,6 +138,7 @@ CREATE TABLE [dbo].[Meeting](
 	[Title] [nvarchar](max) NULL,
 	[Theme] [nvarchar](max) NULL,
 	[WordOfTheDay] [nvarchar](max) NULL,
+	[IntroQuestion] [nvarchar](max) NULL, 
  CONSTRAINT [PK_Meeting] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
