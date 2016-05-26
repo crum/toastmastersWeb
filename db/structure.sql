@@ -255,6 +255,20 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+CREATE TABLE [dbo].[PaymentType](
+	[Id] [bigint] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](max) NOT NULL,
+ CONSTRAINT [PK_PaymentType] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
+)
+
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 CREATE TABLE [dbo].[Person](
 	[Id] [bigint] IDENTITY(1,1) NOT NULL,
 	[Name] [nvarchar](max) NOT NULL,
@@ -501,6 +515,11 @@ ALTER TABLE [dbo].[AwardRecipient]  WITH CHECK ADD  CONSTRAINT [FK_AwardRecipien
 REFERENCES [dbo].[Person] ([Id])
 GO
 ALTER TABLE [dbo].[AwardRecipient] CHECK CONSTRAINT [FK_AwardRecipient_Person]
+GO
+ALTER TABLE [dbo].[Dues]  WITH CHECK ADD  CONSTRAINT [FK_Dues_PaymentType] FOREIGN KEY([PaymentType])
+REFERENCES [dbo].[PaymentType] ([Id])
+GO
+ALTER TABLE [dbo].[Dues] CHECK CONSTRAINT [FK_Dues_PaymentType]
 GO
 ALTER TABLE [dbo].[Dues]  WITH CHECK ADD  CONSTRAINT [FK_Dues_Person] FOREIGN KEY([Member])
 REFERENCES [dbo].[Person] ([Id])

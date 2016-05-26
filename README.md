@@ -29,6 +29,7 @@ Create a web site usable and useful for any Toastmasters club.  This should incl
 - [ ] Assistance with treasurer duties:
 	- [ ] Track paid and unpaid members.
 	- [ ] Send reminder emails to unpaid members.
+	- [ ] Send receipts.
 - [ ] Assistance with VP of education duties:
 	- [ ] Member project/speech tracking.
 	- [ ] Sign-up roster tracking.
