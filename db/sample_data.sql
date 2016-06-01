@@ -61,7 +61,7 @@ INSERT [dbo].[Person] ([Id], [Name], [Email], [PicturePath], [MemberSince], [Sta
 GO
 INSERT [dbo].[Person] ([Id], [Name], [Email], [PicturePath], [MemberSince], [Status]) VALUES (13, N'7164E6EEA37BF5B9B41A73EFC91349FD', N'2407BB9A43CCA44103D09D8D9FD03B81@example.com', NULL, CAST(N'2012-07-01T00:00:00.0000000-05:00' AS DateTimeOffset), 2)
 GO
-INSERT [dbo].[Person] ([Id], [Name], [Email], [PicturePath], [MemberSince], [Status]) VALUES (14, N'0C4A86FD9F65F99C76907F982C44DC56', N'29A522BE52A4086D7C1E68B4D467732F@example.com', NULL, CAST(N'2015-09-01T00:00:00.0000000-05:00' AS DateTimeOffset), 2)
+INSERT [dbo].[Person] ([Id], [Name], [Email], [PicturePath], [MemberSince], [Status]) VALUES (14, N'D50F5B74FDF5BA2395E5549DD4425518', N'26307C0D2D5139D4061F551D4BF834DC@example.com', NULL, CAST(N'2015-09-01T00:00:00.0000000-05:00' AS DateTimeOffset), 2)
 GO
 INSERT [dbo].[Person] ([Id], [Name], [Email], [PicturePath], [MemberSince], [Status]) VALUES (15, N'7CD76C5546DFE1AE60D2F6C8A894F3F3', N'02789176D1F9475930630FF6E408B93F@example.com', NULL, CAST(N'2014-05-01T00:00:00.0000000-05:00' AS DateTimeOffset), 2)
 GO
@@ -193,6 +193,8 @@ GO
 INSERT [dbo].[Meeting] ([Id], [StartTime], [EndTime], [Title], [Theme], [WordOfTheDay], [IntroQuestion]) VALUES (2, CAST(N'2016-05-25T12:00:00.0000000-05:00' AS DateTimeOffset), CAST(N'2016-05-25T13:00:00.0000000-05:00' AS DateTimeOffset), NULL, N'Amusement parks', N'brevity', N'What''s your favorite roller coaster?')
 GO
 INSERT [dbo].[Meeting] ([Id], [StartTime], [EndTime], [Title], [Theme], [WordOfTheDay], [IntroQuestion]) VALUES (3, CAST(N'2016-05-11T12:00:00.0000000-05:00' AS DateTimeOffset), CAST(N'2016-05-11T13:00:00.0000000-05:00' AS DateTimeOffset), NULL, N'Customer service', N'manifestation', N'What''s your best customer service experience?')
+GO
+INSERT [dbo].[Meeting] ([Id], [StartTime], [EndTime], [Title], [Theme], [WordOfTheDay], [IntroQuestion]) VALUES (4, CAST(N'2016-06-01T12:00:00.0000000-05:00' AS DateTimeOffset), CAST(N'2016-06-01T13:00:00.0000000-05:00' AS DateTimeOffset), N'Officer Elections', NULL, NULL, NULL)
 GO
 SET IDENTITY_INSERT [dbo].[Meeting] OFF
 GO
@@ -606,6 +608,8 @@ INSERT [dbo].[ParticipantRole] ([Id], [Title]) VALUES (8, N'Timer')
 GO
 INSERT [dbo].[ParticipantRole] ([Id], [Title]) VALUES (9, N'General Evaluator')
 GO
+INSERT [dbo].[ParticipantRole] ([Id], [Title]) VALUES (10, N'Remote attendee')
+GO
 SET IDENTITY_INSERT [dbo].[ParticipantRole] OFF
 GO
 SET IDENTITY_INSERT [dbo].[MeetingParticipant] ON 
@@ -677,41 +681,59 @@ INSERT [dbo].[MeetingParticipant] ([Id], [Meeting], [Person], [ParticipantType])
 GO
 INSERT [dbo].[MeetingParticipant] ([Id], [Meeting], [Person], [ParticipantType]) VALUES (34, 3, 3, 1)
 GO
+INSERT [dbo].[MeetingParticipant] ([Id], [Meeting], [Person], [ParticipantType]) VALUES (35, 4, 1, 1)
+GO
+INSERT [dbo].[MeetingParticipant] ([Id], [Meeting], [Person], [ParticipantType]) VALUES (36, 4, 6, 1)
+GO
+INSERT [dbo].[MeetingParticipant] ([Id], [Meeting], [Person], [ParticipantType]) VALUES (37, 4, 9, 1)
+GO
+INSERT [dbo].[MeetingParticipant] ([Id], [Meeting], [Person], [ParticipantType]) VALUES (38, 4, 11, 1)
+GO
+INSERT [dbo].[MeetingParticipant] ([Id], [Meeting], [Person], [ParticipantType]) VALUES (39, 4, 14, 1)
+GO
+INSERT [dbo].[MeetingParticipant] ([Id], [Meeting], [Person], [ParticipantType]) VALUES (40, 4, 15, 1)
+GO
+INSERT [dbo].[MeetingParticipant] ([Id], [Meeting], [Person], [ParticipantType]) VALUES (41, 4, 17, 10)
+GO
+INSERT [dbo].[MeetingParticipant] ([Id], [Meeting], [Person], [ParticipantType]) VALUES (42, 4, 18, 1)
+GO
+INSERT [dbo].[MeetingParticipant] ([Id], [Meeting], [Person], [ParticipantType]) VALUES (43, 4, 19, 1)
+GO
 SET IDENTITY_INSERT [dbo].[MeetingParticipant] OFF
 GO
 SET IDENTITY_INSERT [dbo].[TableTopic] ON 
 
 GO
-INSERT [dbo].[TableTopic] ([Id], [Question], [Meeting], [Speaker], [TimeInSeconds]) VALUES (1, N'Is stealing from the rich and giving to the poor justifiable today?', 1, 6, 76)
+INSERT [dbo].[TableTopic] ([Id], [Question], [Meeting], [Speaker], [TimeInSeconds]) VALUES (1, N'9120ECA4DCFE0932F3F9375DE3BDB8E6', 1, 6, 76)
 GO
-INSERT [dbo].[TableTopic] ([Id], [Question], [Meeting], [Speaker], [TimeInSeconds]) VALUES (2, N'Is income disparity a problem today?', 1, 15, 86)
+INSERT [dbo].[TableTopic] ([Id], [Question], [Meeting], [Speaker], [TimeInSeconds]) VALUES (2, N'183D43601FC542CD9BC2EFDA5A8DE47F', 1, 15, 86)
 GO
-INSERT [dbo].[TableTopic] ([Id], [Question], [Meeting], [Speaker], [TimeInSeconds]) VALUES (3, N'Tell us about a time when you felt like you were channeling Robin Hood.', 1, 18, 95)
+INSERT [dbo].[TableTopic] ([Id], [Question], [Meeting], [Speaker], [TimeInSeconds]) VALUES (3, N'3721CE46B1066B3C953EA49CDBB9C121', 1, 18, 95)
 GO
-INSERT [dbo].[TableTopic] ([Id], [Question], [Meeting], [Speaker], [TimeInSeconds]) VALUES (4, N'How would you do a modern-day Robin Hood adaptation?', 1, 17, 60)
+INSERT [dbo].[TableTopic] ([Id], [Question], [Meeting], [Speaker], [TimeInSeconds]) VALUES (4, N'C6A96BED00062077D5E13F9E0EB24CEB', 1, 17, 60)
 GO
-INSERT [dbo].[TableTopic] ([Id], [Question], [Meeting], [Speaker], [TimeInSeconds]) VALUES (5, N'Sell this: Red Lobster Biscuits', 3, 11, 67)
+INSERT [dbo].[TableTopic] ([Id], [Question], [Meeting], [Speaker], [TimeInSeconds]) VALUES (5, N'3C1966DBCBCD3E20C6A3AC821BAF4CDA', 3, 11, 67)
 GO
-INSERT [dbo].[TableTopic] ([Id], [Question], [Meeting], [Speaker], [TimeInSeconds]) VALUES (6, N'Sell this: Oyster crackers', 3, 18, 71)
+INSERT [dbo].[TableTopic] ([Id], [Question], [Meeting], [Speaker], [TimeInSeconds]) VALUES (6, N'B305AD9FA380968CB0A77B2702DA6B39', 3, 18, 71)
 GO
-INSERT [dbo].[TableTopic] ([Id], [Question], [Meeting], [Speaker], [TimeInSeconds]) VALUES (7, N'217. What''s your biggest worry for the future?', 2, 15, 65)
+INSERT [dbo].[TableTopic] ([Id], [Question], [Meeting], [Speaker], [TimeInSeconds]) VALUES (7, N'3B9200B76CA00B9F6CC7CC9236ACD10D', 2, 15, 65)
 GO
-INSERT [dbo].[TableTopic] ([Id], [Question], [Meeting], [Speaker], [TimeInSeconds]) VALUES (8, N'127. What do you owe yourself?', 2, 6, 54)
+INSERT [dbo].[TableTopic] ([Id], [Question], [Meeting], [Speaker], [TimeInSeconds]) VALUES (8, N'97045F43BBEBE7626D2AA72457E21910', 2, 6, 54)
 GO
-INSERT [dbo].[TableTopic] ([Id], [Question], [Meeting], [Speaker], [TimeInSeconds]) VALUES (9, N'28. What makes you smile?', 2, 18, 68)
+INSERT [dbo].[TableTopic] ([Id], [Question], [Meeting], [Speaker], [TimeInSeconds]) VALUES (9, N'6E666EA019670F24727FC298E035FBB0', 2, 18, 68)
 GO
-INSERT [dbo].[TableTopic] ([Id], [Question], [Meeting], [Speaker], [TimeInSeconds]) VALUES (10, N'44. Would you rather have less work or more work you enjoy doing?', 2, 14, 57)
+INSERT [dbo].[TableTopic] ([Id], [Question], [Meeting], [Speaker], [TimeInSeconds]) VALUES (10, N'822A5896024285DE9AA149D746E24098', 2, 14, 57)
 GO
 SET IDENTITY_INSERT [dbo].[TableTopic] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Speech] ON 
 
 GO
-INSERT [dbo].[Speech] ([Id], [Title], [Project], [Speaker], [TimeInSeconds], [Meeting]) VALUES (1, N'Rite of Passage', 64, 19, 490, 1)
+INSERT [dbo].[Speech] ([Id], [Title], [Project], [Speaker], [TimeInSeconds], [Meeting]) VALUES (1, N'850B1B7EF33C036025B5AC5EF226781C', 64, 19, 490, 1)
 GO
-INSERT [dbo].[Speech] ([Id], [Title], [Project], [Speaker], [TimeInSeconds], [Meeting]) VALUES (3, N'The Pride of Tanzania', 1, 6, 89, 3)
+INSERT [dbo].[Speech] ([Id], [Title], [Project], [Speaker], [TimeInSeconds], [Meeting]) VALUES (3, N'D251AED9AABDB10EE0AE338DBD0A5005', 1, 6, 89, 3)
 GO
-INSERT [dbo].[Speech] ([Id], [Title], [Project], [Speaker], [TimeInSeconds], [Meeting]) VALUES (4, N'Today is Game Day', 4, 9, 300, 2)
+INSERT [dbo].[Speech] ([Id], [Title], [Project], [Speaker], [TimeInSeconds], [Meeting]) VALUES (4, N'4D1007550632BA44B585E6EEB8497676', 4, 9, 300, 2)
 GO
 SET IDENTITY_INSERT [dbo].[Speech] OFF
 GO
@@ -761,6 +783,22 @@ INSERT [dbo].[OfficerService] ([Id], [Person], [Role], [BeginTerm], [EndTerm]) V
 GO
 INSERT [dbo].[OfficerService] ([Id], [Person], [Role], [BeginTerm], [EndTerm]) VALUES (10, 15, 6, CAST(N'2014-07-01T00:00:00.0000000-05:00' AS DateTimeOffset), CAST(N'2015-06-30T00:00:00.0000000-05:00' AS DateTimeOffset))
 GO
+INSERT [dbo].[OfficerService] ([Id], [Person], [Role], [BeginTerm], [EndTerm]) VALUES (11, 1, 1, CAST(N'2016-07-01T00:00:00.0000000-05:00' AS DateTimeOffset), CAST(N'2017-06-30T00:00:00.0000000-05:00' AS DateTimeOffset))
+GO
+INSERT [dbo].[OfficerService] ([Id], [Person], [Role], [BeginTerm], [EndTerm]) VALUES (12, 19, 2, CAST(N'2016-07-01T00:00:00.0000000-05:00' AS DateTimeOffset), CAST(N'2017-06-30T00:00:00.0000000-05:00' AS DateTimeOffset))
+GO
+INSERT [dbo].[OfficerService] ([Id], [Person], [Role], [BeginTerm], [EndTerm]) VALUES (13, 11, 3, CAST(N'2016-07-01T00:00:00.0000000-05:00' AS DateTimeOffset), CAST(N'2017-06-30T00:00:00.0000000-05:00' AS DateTimeOffset))
+GO
+INSERT [dbo].[OfficerService] ([Id], [Person], [Role], [BeginTerm], [EndTerm]) VALUES (14, 15, 4, CAST(N'2016-07-01T00:00:00.0000000-05:00' AS DateTimeOffset), CAST(N'2017-06-30T00:00:00.0000000-05:00' AS DateTimeOffset))
+GO
+INSERT [dbo].[OfficerService] ([Id], [Person], [Role], [BeginTerm], [EndTerm]) VALUES (15, 9, 5, CAST(N'2016-07-01T00:00:00.0000000-05:00' AS DateTimeOffset), CAST(N'2017-06-30T00:00:00.0000000-05:00' AS DateTimeOffset))
+GO
+INSERT [dbo].[OfficerService] ([Id], [Person], [Role], [BeginTerm], [EndTerm]) VALUES (16, 7, 6, CAST(N'2016-07-01T00:00:00.0000000-05:00' AS DateTimeOffset), CAST(N'2017-06-30T00:00:00.0000000-05:00' AS DateTimeOffset))
+GO
+INSERT [dbo].[OfficerService] ([Id], [Person], [Role], [BeginTerm], [EndTerm]) VALUES (17, 6, 7, CAST(N'2016-07-01T00:00:00.0000000-05:00' AS DateTimeOffset), CAST(N'2017-06-30T00:00:00.0000000-05:00' AS DateTimeOffset))
+GO
+INSERT [dbo].[OfficerService] ([Id], [Person], [Role], [BeginTerm], [EndTerm]) VALUES (18, 5, 8, CAST(N'2016-07-01T00:00:00.0000000-05:00' AS DateTimeOffset), CAST(N'2017-06-30T00:00:00.0000000-05:00' AS DateTimeOffset))
+GO
 SET IDENTITY_INSERT [dbo].[OfficerService] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Evaluation] ON 
@@ -777,7 +815,7 @@ GO
 SET IDENTITY_INSERT [dbo].[Announcement] ON 
 
 GO
-INSERT [dbo].[Announcement] ([Id], [ActiveFrom], [ActiveUntil], [Text]) VALUES (1, CAST(N'2016-05-11T00:00:00.0000000-05:00' AS DateTimeOffset), CAST(N'2016-06-09T00:00:00.0000000-05:00' AS DateTimeOffset), N'Officer Elections: June 8th')
+INSERT [dbo].[Announcement] ([Id], [ActiveFrom], [ActiveUntil], [Text]) VALUES (1, CAST(N'2016-05-11T00:00:00.0000000-05:00' AS DateTimeOffset), CAST(N'2016-06-02T00:00:00.0000000-05:00' AS DateTimeOffset), N'Officer Elections: June 1st')
 GO
 INSERT [dbo].[Announcement] ([Id], [ActiveFrom], [ActiveUntil], [Text]) VALUES (2, CAST(N'2016-05-10T00:00:00.0000000-05:00' AS DateTimeOffset), CAST(N'2016-05-12T00:00:00.0000000-05:00' AS DateTimeOffset), N'Fab 5 Award')
 GO
