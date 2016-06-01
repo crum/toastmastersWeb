@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="065e1fde855248988a99b29b5ed4119a" Name="Diagram1">
+        <EntityTypeShape EntityType="ToastmastersModel.Announcement" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToastmastersModel.Award" Width="1.5" PointX="3" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToastmastersModel.AwardRecipient" Width="1.5" PointX="5.25" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToastmastersModel.AwardType" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToastmastersModel.Due" Width="1.5" PointX="8.25" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToastmastersModel.Evaluation" Width="1.5" PointX="5.25" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToastmastersModel.GrammarianReport" Width="1.5" PointX="5.25" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToastmastersModel.GrammarianReportLine" Width="1.5" PointX="3" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToastmastersModel.Manual" Width="1.5" PointX="6.75" PointY="25.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToastmastersModel.Meeting" Width="1.5" PointX="6" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToastmastersModel.MeetingAward" Width="1.5" PointX="8.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToastmastersModel.MeetingAwardType" Width="1.5" PointX="6" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToastmastersModel.MeetingParticipant" Width="1.5" PointX="8.25" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToastmastersModel.MemberStatu" Width="1.5" PointX="0.75" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToastmastersModel.OfficerRole" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToastmastersModel.OfficerService" Width="1.5" PointX="5.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToastmastersModel.ParticipantRole" Width="1.5" PointX="6" PointY="31.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToastmastersModel.PaymentType" Width="1.5" PointX="6" PointY="28.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToastmastersModel.Person" Width="1.5" PointX="3" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToastmastersModel.Project" Width="1.5" PointX="9" PointY="24.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToastmastersModel.Speech" Width="1.5" PointX="11.25" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToastmastersModel.TableTopic" Width="1.5" PointX="11.25" PointY="11.125" IsExpanded="true" />
+        <AssociationConnector Association="ToastmastersModel.FK_AwardRecipient_Award" ManuallyRouted="false" />
+        <AssociationConnector Association="ToastmastersModel.FK_AwardRecipient_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="ToastmastersModel.FK_Dues_PaymentTYpe" ManuallyRouted="false" />
+        <AssociationConnector Association="ToastmastersModel.FK_Dues_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="ToastmastersModel.FK_Evaluation_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="ToastmastersModel.FK_Evaluation_Speech" ManuallyRouted="false" />
+        <AssociationConnector Association="ToastmastersModel.FK_GrammarianReport_Line" ManuallyRouted="false" />
+        <AssociationConnector Association="ToastmastersModel.FK_GrammarianReport_Meeting" ManuallyRouted="false" />
+        <AssociationConnector Association="ToastmastersModel.FK_GrammarianReport_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="ToastmastersModel.FK_Project_Manual" ManuallyRouted="false" />
+        <AssociationConnector Association="ToastmastersModel.FK_MeetingAward_Meeting" ManuallyRouted="false" />
+        <AssociationConnector Association="ToastmastersModel.FK_MeetingParticipant_Meeting" ManuallyRouted="false" />
+        <AssociationConnector Association="ToastmastersModel.FK_Speech_Meeting" ManuallyRouted="false" />
+        <AssociationConnector Association="ToastmastersModel.FK_TableTopic_Meeting" ManuallyRouted="false" />
+        <AssociationConnector Association="ToastmastersModel.FK_MeetingAward_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="ToastmastersModel.FK_MeetingAward_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="ToastmastersModel.FK_MeetingParticipant_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="ToastmastersModel.FK_MeetingParticipant_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="ToastmastersModel.FK_Person_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="ToastmastersModel.FK_OfficerService_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="ToastmastersModel.FK_OfficerService_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="ToastmastersModel.FK_Speech_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="ToastmastersModel.FK_TableTopic_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="ToastmastersModel.FK_Speech_Project" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

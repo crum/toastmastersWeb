@@ -9,7 +9,7 @@ namespace DatabasePlayground
     // All of these depend on the DB, do not change one without changing the other.
 
     [Flags]
-    internal enum AwardType
+    internal enum AwardTypeEnum
     {
         INVALID = 0,
         Communication = 1,
@@ -17,7 +17,7 @@ namespace DatabasePlayground
         Toastmasters = Communication | Leadership,
     }
 
-    internal enum MeetingAwardType
+    internal enum MeetingAwardTypeEnum
     {
         INVALID = 0,
         BestSpeaker = 1,
@@ -25,7 +25,7 @@ namespace DatabasePlayground
         BestTableTopic = 3,
     }
 
-    internal enum MemberStatus
+    internal enum MemberStatusEnum
     {
         INVALID = 0,
         Guest = 1,
@@ -35,7 +35,7 @@ namespace DatabasePlayground
         Quit = 5,
     }
 
-    internal enum OfficerRole
+    internal enum OfficerRoleEnum
     {
         INVALID = 0,
         President = 1,
@@ -49,7 +49,7 @@ namespace DatabasePlayground
         AreaGovernor = 9,
     }
 
-    internal enum ParticipantRole
+    internal enum ParticipantRoleEnum
     {
         INVALID = 0,
         Attended = 1,
@@ -63,7 +63,7 @@ namespace DatabasePlayground
         GeneralEvaluator = 9,
     }
 
-    internal enum PaymentType
+    internal enum PaymentTypeEnum
     {
         INVALID = 0,
         Check = 1,

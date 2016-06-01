@@ -1,0 +1,1528 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ToastmastersModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Announcement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActiveFrom" Type="datetimeoffset" Precision="7" Nullable="false" />
+          <Property Name="ActiveUntil" Type="datetimeoffset" Precision="7" Nullable="false" />
+          <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Award">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar(max)" Nullable="false" />
+          <Property Name="Abbreviation" Type="varchar(max)" />
+          <Property Name="Type" Type="bigint" Nullable="false" />
+          <Property Name="Rank" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AwardRecipient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Person" Type="bigint" Nullable="false" />
+          <Property Name="Award" Type="bigint" Nullable="false" />
+          <Property Name="DateAwarded" Type="datetimeoffset" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AwardType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dues">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Member" Type="bigint" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="DatePaid" Type="datetimeoffset" Precision="7" Nullable="false" />
+          <Property Name="PaidThroughDate" Type="datetimeoffset" Precision="7" Nullable="false" />
+          <Property Name="PaymentType" Type="bigint" Nullable="false" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Evaluation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Evaluator" Type="bigint" Nullable="false" />
+          <Property Name="Speech" Type="bigint" Nullable="false" />
+          <Property Name="TimeInSeconds" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GrammarianReport">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Meeting" Type="bigint" Nullable="false" />
+          <Property Name="Speaker" Type="bigint" Nullable="false" />
+          <Property Name="Item" Type="bigint" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GrammarianReportLine">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Manual">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar(max)" Nullable="false" />
+          <Property Name="Abbreviation" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Meeting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StartTime" Type="datetimeoffset" Precision="7" Nullable="false" />
+          <Property Name="EndTime" Type="datetimeoffset" Precision="7" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Theme" Type="nvarchar(max)" />
+          <Property Name="WordOfTheDay" Type="nvarchar(max)" />
+          <Property Name="IntroQuestion" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="MeetingAward">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Meeting" Type="bigint" Nullable="false" />
+          <Property Name="Person" Type="bigint" Nullable="false" />
+          <Property Name="AwardType" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MeetingAwardType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MeetingParticipant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Meeting" Type="bigint" Nullable="false" />
+          <Property Name="Person" Type="bigint" Nullable="false" />
+          <Property Name="ParticipantType" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MemberStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Text" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OfficerRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OfficerService">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Person" Type="bigint" Nullable="false" />
+          <Property Name="Role" Type="bigint" Nullable="false" />
+          <Property Name="BeginTerm" Type="datetimeoffset" Precision="7" Nullable="false" />
+          <Property Name="EndTerm" Type="datetimeoffset" Precision="7" />
+        </EntityType>
+        <EntityType Name="ParticipantRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PaymentType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PicturePath" Type="varchar(max)" />
+          <Property Name="MemberSince" Type="datetimeoffset" Precision="7" />
+          <Property Name="Status" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Manual" Type="bigint" Nullable="false" />
+          <Property Name="ProjectNumber" Type="int" Nullable="false" />
+          <Property Name="TargetTimeLowerBoundInSeconds" Type="int" Nullable="false" />
+          <Property Name="TargetTimeUpperBoundInSeconds" Type="int" Nullable="false" />
+          <Property Name="Notes" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Speech">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Project" Type="bigint" Nullable="false" />
+          <Property Name="Speaker" Type="bigint" Nullable="false" />
+          <Property Name="TimeInSeconds" Type="int" Nullable="false" />
+          <Property Name="Meeting" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TableTopic">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Question" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Meeting" Type="bigint" Nullable="false" />
+          <Property Name="Speaker" Type="bigint" Nullable="false" />
+          <Property Name="TimeInSeconds" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AwardRecipient_Award">
+          <End Role="Award" Type="Self.Award" Multiplicity="1" />
+          <End Role="AwardRecipient" Type="Self.AwardRecipient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Award">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AwardRecipient">
+              <PropertyRef Name="Award" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AwardRecipient_Person">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="AwardRecipient" Type="Self.AwardRecipient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AwardRecipient">
+              <PropertyRef Name="Person" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dues_PaymentTYpe">
+          <End Role="PaymentType" Type="Self.PaymentType" Multiplicity="1" />
+          <End Role="Dues" Type="Self.Dues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dues">
+              <PropertyRef Name="PaymentType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dues_Person">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="Dues" Type="Self.Dues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dues">
+              <PropertyRef Name="Member" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Evaluation_Person">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="Evaluation" Type="Self.Evaluation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Evaluation">
+              <PropertyRef Name="Evaluator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Evaluation_Speech">
+          <End Role="Speech" Type="Self.Speech" Multiplicity="1" />
+          <End Role="Evaluation" Type="Self.Evaluation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Speech">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Evaluation">
+              <PropertyRef Name="Speech" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GrammarianReport_Line">
+          <End Role="GrammarianReportLine" Type="Self.GrammarianReportLine" Multiplicity="1" />
+          <End Role="GrammarianReport" Type="Self.GrammarianReport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GrammarianReportLine">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GrammarianReport">
+              <PropertyRef Name="Item" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GrammarianReport_Meeting">
+          <End Role="Meeting" Type="Self.Meeting" Multiplicity="1" />
+          <End Role="GrammarianReport" Type="Self.GrammarianReport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meeting">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GrammarianReport">
+              <PropertyRef Name="Meeting" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GrammarianReport_Person">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="GrammarianReport" Type="Self.GrammarianReport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GrammarianReport">
+              <PropertyRef Name="Speaker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MeetingAward_Meeting">
+          <End Role="Meeting" Type="Self.Meeting" Multiplicity="1" />
+          <End Role="MeetingAward" Type="Self.MeetingAward" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meeting">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MeetingAward">
+              <PropertyRef Name="Meeting" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MeetingAward_Person">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="MeetingAward" Type="Self.MeetingAward" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MeetingAward">
+              <PropertyRef Name="Person" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MeetingAward_Type">
+          <End Role="MeetingAwardType" Type="Self.MeetingAwardType" Multiplicity="1" />
+          <End Role="MeetingAward" Type="Self.MeetingAward" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MeetingAwardType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MeetingAward">
+              <PropertyRef Name="AwardType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MeetingParticipant_Meeting">
+          <End Role="Meeting" Type="Self.Meeting" Multiplicity="1" />
+          <End Role="MeetingParticipant" Type="Self.MeetingParticipant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meeting">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MeetingParticipant">
+              <PropertyRef Name="Meeting" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MeetingParticipant_Person">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="MeetingParticipant" Type="Self.MeetingParticipant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MeetingParticipant">
+              <PropertyRef Name="Person" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MeetingParticipant_Role">
+          <End Role="ParticipantRole" Type="Self.ParticipantRole" Multiplicity="1" />
+          <End Role="MeetingParticipant" Type="Self.MeetingParticipant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ParticipantRole">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MeetingParticipant">
+              <PropertyRef Name="ParticipantType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OfficerService_Person">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="OfficerService" Type="Self.OfficerService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OfficerService">
+              <PropertyRef Name="Person" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OfficerService_Role">
+          <End Role="OfficerRole" Type="Self.OfficerRole" Multiplicity="1" />
+          <End Role="OfficerService" Type="Self.OfficerService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OfficerRole">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OfficerService">
+              <PropertyRef Name="Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Person_Status">
+          <End Role="MemberStatus" Type="Self.MemberStatus" Multiplicity="1" />
+          <End Role="Person" Type="Self.Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MemberStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Project_Manual">
+          <End Role="Manual" Type="Self.Manual" Multiplicity="1" />
+          <End Role="Project" Type="Self.Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manual">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Project">
+              <PropertyRef Name="Manual" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Speech_Meeting">
+          <End Role="Meeting" Type="Self.Meeting" Multiplicity="1" />
+          <End Role="Speech" Type="Self.Speech" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meeting">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Speech">
+              <PropertyRef Name="Meeting" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Speech_Person">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="Speech" Type="Self.Speech" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Speech">
+              <PropertyRef Name="Speaker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Speech_Project">
+          <End Role="Project" Type="Self.Project" Multiplicity="1" />
+          <End Role="Speech" Type="Self.Speech" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Speech">
+              <PropertyRef Name="Project" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TableTopic_Meeting">
+          <End Role="Meeting" Type="Self.Meeting" Multiplicity="1" />
+          <End Role="TableTopic" Type="Self.TableTopic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meeting">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TableTopic">
+              <PropertyRef Name="Meeting" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TableTopic_Person">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="TableTopic" Type="Self.TableTopic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TableTopic">
+              <PropertyRef Name="Speaker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ToastmastersModelStoreContainer">
+          <EntitySet Name="Announcement" EntityType="Self.Announcement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Award" EntityType="Self.Award" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AwardRecipient" EntityType="Self.AwardRecipient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AwardType" EntityType="Self.AwardType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dues" EntityType="Self.Dues" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Evaluation" EntityType="Self.Evaluation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GrammarianReport" EntityType="Self.GrammarianReport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GrammarianReportLine" EntityType="Self.GrammarianReportLine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Manual" EntityType="Self.Manual" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Meeting" EntityType="Self.Meeting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MeetingAward" EntityType="Self.MeetingAward" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MeetingAwardType" EntityType="Self.MeetingAwardType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MeetingParticipant" EntityType="Self.MeetingParticipant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MemberStatus" EntityType="Self.MemberStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OfficerRole" EntityType="Self.OfficerRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OfficerService" EntityType="Self.OfficerService" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ParticipantRole" EntityType="Self.ParticipantRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentType" EntityType="Self.PaymentType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Speech" EntityType="Self.Speech" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TableTopic" EntityType="Self.TableTopic" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AwardRecipient_Award" Association="Self.FK_AwardRecipient_Award">
+            <End Role="Award" EntitySet="Award" />
+            <End Role="AwardRecipient" EntitySet="AwardRecipient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AwardRecipient_Person" Association="Self.FK_AwardRecipient_Person">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="AwardRecipient" EntitySet="AwardRecipient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dues_PaymentTYpe" Association="Self.FK_Dues_PaymentTYpe">
+            <End Role="PaymentType" EntitySet="PaymentType" />
+            <End Role="Dues" EntitySet="Dues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dues_Person" Association="Self.FK_Dues_Person">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="Dues" EntitySet="Dues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Evaluation_Person" Association="Self.FK_Evaluation_Person">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="Evaluation" EntitySet="Evaluation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Evaluation_Speech" Association="Self.FK_Evaluation_Speech">
+            <End Role="Speech" EntitySet="Speech" />
+            <End Role="Evaluation" EntitySet="Evaluation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GrammarianReport_Line" Association="Self.FK_GrammarianReport_Line">
+            <End Role="GrammarianReportLine" EntitySet="GrammarianReportLine" />
+            <End Role="GrammarianReport" EntitySet="GrammarianReport" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GrammarianReport_Meeting" Association="Self.FK_GrammarianReport_Meeting">
+            <End Role="Meeting" EntitySet="Meeting" />
+            <End Role="GrammarianReport" EntitySet="GrammarianReport" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GrammarianReport_Person" Association="Self.FK_GrammarianReport_Person">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="GrammarianReport" EntitySet="GrammarianReport" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MeetingAward_Meeting" Association="Self.FK_MeetingAward_Meeting">
+            <End Role="Meeting" EntitySet="Meeting" />
+            <End Role="MeetingAward" EntitySet="MeetingAward" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MeetingAward_Person" Association="Self.FK_MeetingAward_Person">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="MeetingAward" EntitySet="MeetingAward" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MeetingAward_Type" Association="Self.FK_MeetingAward_Type">
+            <End Role="MeetingAwardType" EntitySet="MeetingAwardType" />
+            <End Role="MeetingAward" EntitySet="MeetingAward" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MeetingParticipant_Meeting" Association="Self.FK_MeetingParticipant_Meeting">
+            <End Role="Meeting" EntitySet="Meeting" />
+            <End Role="MeetingParticipant" EntitySet="MeetingParticipant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MeetingParticipant_Person" Association="Self.FK_MeetingParticipant_Person">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="MeetingParticipant" EntitySet="MeetingParticipant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MeetingParticipant_Role" Association="Self.FK_MeetingParticipant_Role">
+            <End Role="ParticipantRole" EntitySet="ParticipantRole" />
+            <End Role="MeetingParticipant" EntitySet="MeetingParticipant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OfficerService_Person" Association="Self.FK_OfficerService_Person">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="OfficerService" EntitySet="OfficerService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OfficerService_Role" Association="Self.FK_OfficerService_Role">
+            <End Role="OfficerRole" EntitySet="OfficerRole" />
+            <End Role="OfficerService" EntitySet="OfficerService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Person_Status" Association="Self.FK_Person_Status">
+            <End Role="MemberStatus" EntitySet="MemberStatus" />
+            <End Role="Person" EntitySet="Person" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Project_Manual" Association="Self.FK_Project_Manual">
+            <End Role="Manual" EntitySet="Manual" />
+            <End Role="Project" EntitySet="Project" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Speech_Meeting" Association="Self.FK_Speech_Meeting">
+            <End Role="Meeting" EntitySet="Meeting" />
+            <End Role="Speech" EntitySet="Speech" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Speech_Person" Association="Self.FK_Speech_Person">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="Speech" EntitySet="Speech" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Speech_Project" Association="Self.FK_Speech_Project">
+            <End Role="Project" EntitySet="Project" />
+            <End Role="Speech" EntitySet="Speech" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TableTopic_Meeting" Association="Self.FK_TableTopic_Meeting">
+            <End Role="Meeting" EntitySet="Meeting" />
+            <End Role="TableTopic" EntitySet="TableTopic" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TableTopic_Person" Association="Self.FK_TableTopic_Person">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="TableTopic" EntitySet="TableTopic" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ToastmastersModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Announcement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActiveFrom" Type="DateTimeOffset" Nullable="false" Precision="7" />
+          <Property Name="ActiveUntil" Type="DateTimeOffset" Nullable="false" Precision="7" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Award">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Abbreviation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="Int64" Nullable="false" />
+          <Property Name="Rank" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AwardRecipients" Relationship="Self.FK_AwardRecipient_Award" FromRole="Award" ToRole="AwardRecipient" />
+        </EntityType>
+        <EntityType Name="AwardRecipient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Person" Type="Int64" Nullable="false" />
+          <Property Name="Award" Type="Int64" Nullable="false" />
+          <Property Name="DateAwarded" Type="DateTimeOffset" Nullable="false" Precision="7" />
+          <NavigationProperty Name="Award1" Relationship="Self.FK_AwardRecipient_Award" FromRole="AwardRecipient" ToRole="Award" />
+          <NavigationProperty Name="Person1" Relationship="Self.FK_AwardRecipient_Person" FromRole="AwardRecipient" ToRole="Person" />
+        </EntityType>
+        <EntityType Name="AwardType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Due">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Member" Type="Int64" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="DatePaid" Type="DateTimeOffset" Nullable="false" Precision="7" />
+          <Property Name="PaidThroughDate" Type="DateTimeOffset" Nullable="false" Precision="7" />
+          <Property Name="PaymentType" Type="Int64" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PaymentType1" Relationship="Self.FK_Dues_PaymentTYpe" FromRole="Dues" ToRole="PaymentType" />
+          <NavigationProperty Name="Person" Relationship="Self.FK_Dues_Person" FromRole="Dues" ToRole="Person" />
+        </EntityType>
+        <EntityType Name="Evaluation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Evaluator" Type="Int64" Nullable="false" />
+          <Property Name="Speech" Type="Int64" Nullable="false" />
+          <Property Name="TimeInSeconds" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Person" Relationship="Self.FK_Evaluation_Person" FromRole="Evaluation" ToRole="Person" />
+          <NavigationProperty Name="Speech1" Relationship="Self.FK_Evaluation_Speech" FromRole="Evaluation" ToRole="Speech" />
+        </EntityType>
+        <EntityType Name="GrammarianReport">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Meeting" Type="Int64" Nullable="false" />
+          <Property Name="Speaker" Type="Int64" Nullable="false" />
+          <Property Name="Item" Type="Int64" Nullable="false" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="GrammarianReportLine" Relationship="Self.FK_GrammarianReport_Line" FromRole="GrammarianReport" ToRole="GrammarianReportLine" />
+          <NavigationProperty Name="Meeting1" Relationship="Self.FK_GrammarianReport_Meeting" FromRole="GrammarianReport" ToRole="Meeting" />
+          <NavigationProperty Name="Person" Relationship="Self.FK_GrammarianReport_Person" FromRole="GrammarianReport" ToRole="Person" />
+        </EntityType>
+        <EntityType Name="GrammarianReportLine">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="GrammarianReports" Relationship="Self.FK_GrammarianReport_Line" FromRole="GrammarianReportLine" ToRole="GrammarianReport" />
+        </EntityType>
+        <EntityType Name="Manual">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Abbreviation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Projects" Relationship="Self.FK_Project_Manual" FromRole="Manual" ToRole="Project" />
+        </EntityType>
+        <EntityType Name="Meeting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StartTime" Type="DateTimeOffset" Nullable="false" Precision="7" />
+          <Property Name="EndTime" Type="DateTimeOffset" Nullable="false" Precision="7" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Theme" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WordOfTheDay" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IntroQuestion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="GrammarianReports" Relationship="Self.FK_GrammarianReport_Meeting" FromRole="Meeting" ToRole="GrammarianReport" />
+          <NavigationProperty Name="MeetingAwards" Relationship="Self.FK_MeetingAward_Meeting" FromRole="Meeting" ToRole="MeetingAward" />
+          <NavigationProperty Name="MeetingParticipants" Relationship="Self.FK_MeetingParticipant_Meeting" FromRole="Meeting" ToRole="MeetingParticipant" />
+          <NavigationProperty Name="Speeches" Relationship="Self.FK_Speech_Meeting" FromRole="Meeting" ToRole="Speech" />
+          <NavigationProperty Name="TableTopics" Relationship="Self.FK_TableTopic_Meeting" FromRole="Meeting" ToRole="TableTopic" />
+        </EntityType>
+        <EntityType Name="MeetingAward">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Meeting" Type="Int64" Nullable="false" />
+          <Property Name="Person" Type="Int64" Nullable="false" />
+          <Property Name="AwardType" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Meeting1" Relationship="Self.FK_MeetingAward_Meeting" FromRole="MeetingAward" ToRole="Meeting" />
+          <NavigationProperty Name="Person1" Relationship="Self.FK_MeetingAward_Person" FromRole="MeetingAward" ToRole="Person" />
+          <NavigationProperty Name="MeetingAwardType" Relationship="Self.FK_MeetingAward_Type" FromRole="MeetingAward" ToRole="MeetingAwardType" />
+        </EntityType>
+        <EntityType Name="MeetingAwardType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="MeetingAwards" Relationship="Self.FK_MeetingAward_Type" FromRole="MeetingAwardType" ToRole="MeetingAward" />
+        </EntityType>
+        <EntityType Name="MeetingParticipant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Meeting" Type="Int64" Nullable="false" />
+          <Property Name="Person" Type="Int64" Nullable="false" />
+          <Property Name="ParticipantType" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Meeting1" Relationship="Self.FK_MeetingParticipant_Meeting" FromRole="MeetingParticipant" ToRole="Meeting" />
+          <NavigationProperty Name="Person1" Relationship="Self.FK_MeetingParticipant_Person" FromRole="MeetingParticipant" ToRole="Person" />
+          <NavigationProperty Name="ParticipantRole" Relationship="Self.FK_MeetingParticipant_Role" FromRole="MeetingParticipant" ToRole="ParticipantRole" />
+        </EntityType>
+        <EntityType Name="MemberStatu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="People" Relationship="Self.FK_Person_Status" FromRole="MemberStatus" ToRole="Person" />
+        </EntityType>
+        <EntityType Name="OfficerRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="OfficerServices" Relationship="Self.FK_OfficerService_Role" FromRole="OfficerRole" ToRole="OfficerService" />
+        </EntityType>
+        <EntityType Name="OfficerService">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Person" Type="Int64" Nullable="false" />
+          <Property Name="Role" Type="Int64" Nullable="false" />
+          <Property Name="BeginTerm" Type="DateTimeOffset" Nullable="false" Precision="7" />
+          <Property Name="EndTerm" Type="DateTimeOffset" Precision="7" />
+          <NavigationProperty Name="OfficerRole" Relationship="Self.FK_OfficerService_Role" FromRole="OfficerService" ToRole="OfficerRole" />
+          <NavigationProperty Name="Person1" Relationship="Self.FK_OfficerService_Person" FromRole="OfficerService" ToRole="Person" />
+        </EntityType>
+        <EntityType Name="ParticipantRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="MeetingParticipants" Relationship="Self.FK_MeetingParticipant_Role" FromRole="ParticipantRole" ToRole="MeetingParticipant" />
+        </EntityType>
+        <EntityType Name="PaymentType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Dues" Relationship="Self.FK_Dues_PaymentTYpe" FromRole="PaymentType" ToRole="Dues" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PicturePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MemberSince" Type="DateTimeOffset" Precision="7" />
+          <Property Name="Status" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="AwardRecipients" Relationship="Self.FK_AwardRecipient_Person" FromRole="Person" ToRole="AwardRecipient" />
+          <NavigationProperty Name="Dues" Relationship="Self.FK_Dues_Person" FromRole="Person" ToRole="Dues" />
+          <NavigationProperty Name="Evaluations" Relationship="Self.FK_Evaluation_Person" FromRole="Person" ToRole="Evaluation" />
+          <NavigationProperty Name="GrammarianReports" Relationship="Self.FK_GrammarianReport_Person" FromRole="Person" ToRole="GrammarianReport" />
+          <NavigationProperty Name="MeetingAwards" Relationship="Self.FK_MeetingAward_Person" FromRole="Person" ToRole="MeetingAward" />
+          <NavigationProperty Name="MeetingParticipants" Relationship="Self.FK_MeetingParticipant_Person" FromRole="Person" ToRole="MeetingParticipant" />
+          <NavigationProperty Name="MemberStatu" Relationship="Self.FK_Person_Status" FromRole="Person" ToRole="MemberStatus" />
+          <NavigationProperty Name="OfficerServices" Relationship="Self.FK_OfficerService_Person" FromRole="Person" ToRole="OfficerService" />
+          <NavigationProperty Name="Speeches" Relationship="Self.FK_Speech_Person" FromRole="Person" ToRole="Speech" />
+          <NavigationProperty Name="TableTopics" Relationship="Self.FK_TableTopic_Person" FromRole="Person" ToRole="TableTopic" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Manual" Type="Int64" Nullable="false" />
+          <Property Name="ProjectNumber" Type="Int32" Nullable="false" />
+          <Property Name="TargetTimeLowerBoundInSeconds" Type="Int32" Nullable="false" />
+          <Property Name="TargetTimeUpperBoundInSeconds" Type="Int32" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Manual1" Relationship="Self.FK_Project_Manual" FromRole="Project" ToRole="Manual" />
+          <NavigationProperty Name="Speeches" Relationship="Self.FK_Speech_Project" FromRole="Project" ToRole="Speech" />
+        </EntityType>
+        <EntityType Name="Speech">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Project" Type="Int64" Nullable="false" />
+          <Property Name="Speaker" Type="Int64" Nullable="false" />
+          <Property Name="TimeInSeconds" Type="Int32" Nullable="false" />
+          <Property Name="Meeting" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Evaluations" Relationship="Self.FK_Evaluation_Speech" FromRole="Speech" ToRole="Evaluation" />
+          <NavigationProperty Name="Meeting1" Relationship="Self.FK_Speech_Meeting" FromRole="Speech" ToRole="Meeting" />
+          <NavigationProperty Name="Person" Relationship="Self.FK_Speech_Person" FromRole="Speech" ToRole="Person" />
+          <NavigationProperty Name="Project1" Relationship="Self.FK_Speech_Project" FromRole="Speech" ToRole="Project" />
+        </EntityType>
+        <EntityType Name="TableTopic">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Question" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Meeting" Type="Int64" Nullable="false" />
+          <Property Name="Speaker" Type="Int64" Nullable="false" />
+          <Property Name="TimeInSeconds" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Meeting1" Relationship="Self.FK_TableTopic_Meeting" FromRole="TableTopic" ToRole="Meeting" />
+          <NavigationProperty Name="Person" Relationship="Self.FK_TableTopic_Person" FromRole="TableTopic" ToRole="Person" />
+        </EntityType>
+        <Association Name="FK_AwardRecipient_Award">
+          <End Role="Award" Type="Self.Award" Multiplicity="1" />
+          <End Role="AwardRecipient" Type="Self.AwardRecipient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Award">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AwardRecipient">
+              <PropertyRef Name="Award" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AwardRecipient_Person">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="AwardRecipient" Type="Self.AwardRecipient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AwardRecipient">
+              <PropertyRef Name="Person" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dues_PaymentTYpe">
+          <End Role="PaymentType" Type="Self.PaymentType" Multiplicity="1" />
+          <End Role="Dues" Type="Self.Due" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dues">
+              <PropertyRef Name="PaymentType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dues_Person">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="Dues" Type="Self.Due" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dues">
+              <PropertyRef Name="Member" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Evaluation_Person">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="Evaluation" Type="Self.Evaluation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Evaluation">
+              <PropertyRef Name="Evaluator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Evaluation_Speech">
+          <End Role="Speech" Type="Self.Speech" Multiplicity="1" />
+          <End Role="Evaluation" Type="Self.Evaluation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Speech">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Evaluation">
+              <PropertyRef Name="Speech" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GrammarianReport_Line">
+          <End Role="GrammarianReportLine" Type="Self.GrammarianReportLine" Multiplicity="1" />
+          <End Role="GrammarianReport" Type="Self.GrammarianReport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GrammarianReportLine">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GrammarianReport">
+              <PropertyRef Name="Item" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GrammarianReport_Meeting">
+          <End Role="Meeting" Type="Self.Meeting" Multiplicity="1" />
+          <End Role="GrammarianReport" Type="Self.GrammarianReport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meeting">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GrammarianReport">
+              <PropertyRef Name="Meeting" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GrammarianReport_Person">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="GrammarianReport" Type="Self.GrammarianReport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GrammarianReport">
+              <PropertyRef Name="Speaker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Project_Manual">
+          <End Role="Manual" Type="Self.Manual" Multiplicity="1" />
+          <End Role="Project" Type="Self.Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manual">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Project">
+              <PropertyRef Name="Manual" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MeetingAward_Meeting">
+          <End Role="Meeting" Type="Self.Meeting" Multiplicity="1" />
+          <End Role="MeetingAward" Type="Self.MeetingAward" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meeting">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MeetingAward">
+              <PropertyRef Name="Meeting" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MeetingParticipant_Meeting">
+          <End Role="Meeting" Type="Self.Meeting" Multiplicity="1" />
+          <End Role="MeetingParticipant" Type="Self.MeetingParticipant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meeting">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MeetingParticipant">
+              <PropertyRef Name="Meeting" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Speech_Meeting">
+          <End Role="Meeting" Type="Self.Meeting" Multiplicity="1" />
+          <End Role="Speech" Type="Self.Speech" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meeting">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Speech">
+              <PropertyRef Name="Meeting" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TableTopic_Meeting">
+          <End Role="Meeting" Type="Self.Meeting" Multiplicity="1" />
+          <End Role="TableTopic" Type="Self.TableTopic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meeting">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TableTopic">
+              <PropertyRef Name="Meeting" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MeetingAward_Person">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="MeetingAward" Type="Self.MeetingAward" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MeetingAward">
+              <PropertyRef Name="Person" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MeetingAward_Type">
+          <End Role="MeetingAwardType" Type="Self.MeetingAwardType" Multiplicity="1" />
+          <End Role="MeetingAward" Type="Self.MeetingAward" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MeetingAwardType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MeetingAward">
+              <PropertyRef Name="AwardType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MeetingParticipant_Person">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="MeetingParticipant" Type="Self.MeetingParticipant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MeetingParticipant">
+              <PropertyRef Name="Person" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MeetingParticipant_Role">
+          <End Role="ParticipantRole" Type="Self.ParticipantRole" Multiplicity="1" />
+          <End Role="MeetingParticipant" Type="Self.MeetingParticipant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ParticipantRole">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MeetingParticipant">
+              <PropertyRef Name="ParticipantType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Person_Status">
+          <End Role="MemberStatus" Type="Self.MemberStatu" Multiplicity="1" />
+          <End Role="Person" Type="Self.Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MemberStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OfficerService_Role">
+          <End Role="OfficerRole" Type="Self.OfficerRole" Multiplicity="1" />
+          <End Role="OfficerService" Type="Self.OfficerService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OfficerRole">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OfficerService">
+              <PropertyRef Name="Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OfficerService_Person">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="OfficerService" Type="Self.OfficerService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OfficerService">
+              <PropertyRef Name="Person" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Speech_Person">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="Speech" Type="Self.Speech" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Speech">
+              <PropertyRef Name="Speaker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TableTopic_Person">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="TableTopic" Type="Self.TableTopic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TableTopic">
+              <PropertyRef Name="Speaker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Speech_Project">
+          <End Role="Project" Type="Self.Project" Multiplicity="1" />
+          <End Role="Speech" Type="Self.Speech" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Speech">
+              <PropertyRef Name="Project" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ToastmastersStagingConnection" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Announcements" EntityType="Self.Announcement" />
+          <EntitySet Name="Awards" EntityType="Self.Award" />
+          <EntitySet Name="AwardRecipients" EntityType="Self.AwardRecipient" />
+          <EntitySet Name="AwardTypes" EntityType="Self.AwardType" />
+          <EntitySet Name="Dues" EntityType="Self.Due" />
+          <EntitySet Name="Evaluations" EntityType="Self.Evaluation" />
+          <EntitySet Name="GrammarianReports" EntityType="Self.GrammarianReport" />
+          <EntitySet Name="GrammarianReportLines" EntityType="Self.GrammarianReportLine" />
+          <EntitySet Name="Manuals" EntityType="Self.Manual" />
+          <EntitySet Name="Meetings" EntityType="Self.Meeting" />
+          <EntitySet Name="MeetingAwards" EntityType="Self.MeetingAward" />
+          <EntitySet Name="MeetingAwardTypes" EntityType="Self.MeetingAwardType" />
+          <EntitySet Name="MeetingParticipants" EntityType="Self.MeetingParticipant" />
+          <EntitySet Name="MemberStatus" EntityType="Self.MemberStatu" />
+          <EntitySet Name="OfficerRoles" EntityType="Self.OfficerRole" />
+          <EntitySet Name="OfficerServices" EntityType="Self.OfficerService" />
+          <EntitySet Name="ParticipantRoles" EntityType="Self.ParticipantRole" />
+          <EntitySet Name="PaymentTypes" EntityType="Self.PaymentType" />
+          <EntitySet Name="People" EntityType="Self.Person" />
+          <EntitySet Name="Projects" EntityType="Self.Project" />
+          <EntitySet Name="Speeches" EntityType="Self.Speech" />
+          <EntitySet Name="TableTopics" EntityType="Self.TableTopic" />
+          <AssociationSet Name="FK_AwardRecipient_Award" Association="Self.FK_AwardRecipient_Award">
+            <End Role="Award" EntitySet="Awards" />
+            <End Role="AwardRecipient" EntitySet="AwardRecipients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AwardRecipient_Person" Association="Self.FK_AwardRecipient_Person">
+            <End Role="Person" EntitySet="People" />
+            <End Role="AwardRecipient" EntitySet="AwardRecipients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dues_PaymentTYpe" Association="Self.FK_Dues_PaymentTYpe">
+            <End Role="PaymentType" EntitySet="PaymentTypes" />
+            <End Role="Dues" EntitySet="Dues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dues_Person" Association="Self.FK_Dues_Person">
+            <End Role="Person" EntitySet="People" />
+            <End Role="Dues" EntitySet="Dues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Evaluation_Person" Association="Self.FK_Evaluation_Person">
+            <End Role="Person" EntitySet="People" />
+            <End Role="Evaluation" EntitySet="Evaluations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Evaluation_Speech" Association="Self.FK_Evaluation_Speech">
+            <End Role="Speech" EntitySet="Speeches" />
+            <End Role="Evaluation" EntitySet="Evaluations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GrammarianReport_Line" Association="Self.FK_GrammarianReport_Line">
+            <End Role="GrammarianReportLine" EntitySet="GrammarianReportLines" />
+            <End Role="GrammarianReport" EntitySet="GrammarianReports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GrammarianReport_Meeting" Association="Self.FK_GrammarianReport_Meeting">
+            <End Role="Meeting" EntitySet="Meetings" />
+            <End Role="GrammarianReport" EntitySet="GrammarianReports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GrammarianReport_Person" Association="Self.FK_GrammarianReport_Person">
+            <End Role="Person" EntitySet="People" />
+            <End Role="GrammarianReport" EntitySet="GrammarianReports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Project_Manual" Association="Self.FK_Project_Manual">
+            <End Role="Manual" EntitySet="Manuals" />
+            <End Role="Project" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MeetingAward_Meeting" Association="Self.FK_MeetingAward_Meeting">
+            <End Role="Meeting" EntitySet="Meetings" />
+            <End Role="MeetingAward" EntitySet="MeetingAwards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MeetingParticipant_Meeting" Association="Self.FK_MeetingParticipant_Meeting">
+            <End Role="Meeting" EntitySet="Meetings" />
+            <End Role="MeetingParticipant" EntitySet="MeetingParticipants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Speech_Meeting" Association="Self.FK_Speech_Meeting">
+            <End Role="Meeting" EntitySet="Meetings" />
+            <End Role="Speech" EntitySet="Speeches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TableTopic_Meeting" Association="Self.FK_TableTopic_Meeting">
+            <End Role="Meeting" EntitySet="Meetings" />
+            <End Role="TableTopic" EntitySet="TableTopics" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MeetingAward_Person" Association="Self.FK_MeetingAward_Person">
+            <End Role="Person" EntitySet="People" />
+            <End Role="MeetingAward" EntitySet="MeetingAwards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MeetingAward_Type" Association="Self.FK_MeetingAward_Type">
+            <End Role="MeetingAwardType" EntitySet="MeetingAwardTypes" />
+            <End Role="MeetingAward" EntitySet="MeetingAwards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MeetingParticipant_Person" Association="Self.FK_MeetingParticipant_Person">
+            <End Role="Person" EntitySet="People" />
+            <End Role="MeetingParticipant" EntitySet="MeetingParticipants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MeetingParticipant_Role" Association="Self.FK_MeetingParticipant_Role">
+            <End Role="ParticipantRole" EntitySet="ParticipantRoles" />
+            <End Role="MeetingParticipant" EntitySet="MeetingParticipants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Person_Status" Association="Self.FK_Person_Status">
+            <End Role="MemberStatus" EntitySet="MemberStatus" />
+            <End Role="Person" EntitySet="People" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OfficerService_Role" Association="Self.FK_OfficerService_Role">
+            <End Role="OfficerRole" EntitySet="OfficerRoles" />
+            <End Role="OfficerService" EntitySet="OfficerServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OfficerService_Person" Association="Self.FK_OfficerService_Person">
+            <End Role="Person" EntitySet="People" />
+            <End Role="OfficerService" EntitySet="OfficerServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Speech_Person" Association="Self.FK_Speech_Person">
+            <End Role="Person" EntitySet="People" />
+            <End Role="Speech" EntitySet="Speeches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TableTopic_Person" Association="Self.FK_TableTopic_Person">
+            <End Role="Person" EntitySet="People" />
+            <End Role="TableTopic" EntitySet="TableTopics" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Speech_Project" Association="Self.FK_Speech_Project">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="Speech" EntitySet="Speeches" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ToastmastersModelStoreContainer" CdmEntityContainer="ToastmastersStagingConnection">
+          <EntitySetMapping Name="Announcements">
+            <EntityTypeMapping TypeName="ToastmastersModel.Announcement">
+              <MappingFragment StoreEntitySet="Announcement">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ActiveFrom" ColumnName="ActiveFrom" />
+                <ScalarProperty Name="ActiveUntil" ColumnName="ActiveUntil" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Awards">
+            <EntityTypeMapping TypeName="ToastmastersModel.Award">
+              <MappingFragment StoreEntitySet="Award">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AwardRecipients">
+            <EntityTypeMapping TypeName="ToastmastersModel.AwardRecipient">
+              <MappingFragment StoreEntitySet="AwardRecipient">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Person" ColumnName="Person" />
+                <ScalarProperty Name="Award" ColumnName="Award" />
+                <ScalarProperty Name="DateAwarded" ColumnName="DateAwarded" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AwardTypes">
+            <EntityTypeMapping TypeName="ToastmastersModel.AwardType">
+              <MappingFragment StoreEntitySet="AwardType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dues">
+            <EntityTypeMapping TypeName="ToastmastersModel.Due">
+              <MappingFragment StoreEntitySet="Dues">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Member" ColumnName="Member" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="DatePaid" ColumnName="DatePaid" />
+                <ScalarProperty Name="PaidThroughDate" ColumnName="PaidThroughDate" />
+                <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Evaluations">
+            <EntityTypeMapping TypeName="ToastmastersModel.Evaluation">
+              <MappingFragment StoreEntitySet="Evaluation">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Evaluator" ColumnName="Evaluator" />
+                <ScalarProperty Name="Speech" ColumnName="Speech" />
+                <ScalarProperty Name="TimeInSeconds" ColumnName="TimeInSeconds" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GrammarianReports">
+            <EntityTypeMapping TypeName="ToastmastersModel.GrammarianReport">
+              <MappingFragment StoreEntitySet="GrammarianReport">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Meeting" ColumnName="Meeting" />
+                <ScalarProperty Name="Speaker" ColumnName="Speaker" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GrammarianReportLines">
+            <EntityTypeMapping TypeName="ToastmastersModel.GrammarianReportLine">
+              <MappingFragment StoreEntitySet="GrammarianReportLine">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Manuals">
+            <EntityTypeMapping TypeName="ToastmastersModel.Manual">
+              <MappingFragment StoreEntitySet="Manual">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Meetings">
+            <EntityTypeMapping TypeName="ToastmastersModel.Meeting">
+              <MappingFragment StoreEntitySet="Meeting">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Theme" ColumnName="Theme" />
+                <ScalarProperty Name="WordOfTheDay" ColumnName="WordOfTheDay" />
+                <ScalarProperty Name="IntroQuestion" ColumnName="IntroQuestion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MeetingAwards">
+            <EntityTypeMapping TypeName="ToastmastersModel.MeetingAward">
+              <MappingFragment StoreEntitySet="MeetingAward">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Meeting" ColumnName="Meeting" />
+                <ScalarProperty Name="Person" ColumnName="Person" />
+                <ScalarProperty Name="AwardType" ColumnName="AwardType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MeetingAwardTypes">
+            <EntityTypeMapping TypeName="ToastmastersModel.MeetingAwardType">
+              <MappingFragment StoreEntitySet="MeetingAwardType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MeetingParticipants">
+            <EntityTypeMapping TypeName="ToastmastersModel.MeetingParticipant">
+              <MappingFragment StoreEntitySet="MeetingParticipant">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Meeting" ColumnName="Meeting" />
+                <ScalarProperty Name="Person" ColumnName="Person" />
+                <ScalarProperty Name="ParticipantType" ColumnName="ParticipantType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MemberStatus">
+            <EntityTypeMapping TypeName="ToastmastersModel.MemberStatu">
+              <MappingFragment StoreEntitySet="MemberStatus">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OfficerRoles">
+            <EntityTypeMapping TypeName="ToastmastersModel.OfficerRole">
+              <MappingFragment StoreEntitySet="OfficerRole">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OfficerServices">
+            <EntityTypeMapping TypeName="ToastmastersModel.OfficerService">
+              <MappingFragment StoreEntitySet="OfficerService">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Person" ColumnName="Person" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="BeginTerm" ColumnName="BeginTerm" />
+                <ScalarProperty Name="EndTerm" ColumnName="EndTerm" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ParticipantRoles">
+            <EntityTypeMapping TypeName="ToastmastersModel.ParticipantRole">
+              <MappingFragment StoreEntitySet="ParticipantRole">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentTypes">
+            <EntityTypeMapping TypeName="ToastmastersModel.PaymentType">
+              <MappingFragment StoreEntitySet="PaymentType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="People">
+            <EntityTypeMapping TypeName="ToastmastersModel.Person">
+              <MappingFragment StoreEntitySet="Person">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PicturePath" ColumnName="PicturePath" />
+                <ScalarProperty Name="MemberSince" ColumnName="MemberSince" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="ToastmastersModel.Project">
+              <MappingFragment StoreEntitySet="Project">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Manual" ColumnName="Manual" />
+                <ScalarProperty Name="ProjectNumber" ColumnName="ProjectNumber" />
+                <ScalarProperty Name="TargetTimeLowerBoundInSeconds" ColumnName="TargetTimeLowerBoundInSeconds" />
+                <ScalarProperty Name="TargetTimeUpperBoundInSeconds" ColumnName="TargetTimeUpperBoundInSeconds" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Speeches">
+            <EntityTypeMapping TypeName="ToastmastersModel.Speech">
+              <MappingFragment StoreEntitySet="Speech">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Project" ColumnName="Project" />
+                <ScalarProperty Name="Speaker" ColumnName="Speaker" />
+                <ScalarProperty Name="TimeInSeconds" ColumnName="TimeInSeconds" />
+                <ScalarProperty Name="Meeting" ColumnName="Meeting" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TableTopics">
+            <EntityTypeMapping TypeName="ToastmastersModel.TableTopic">
+              <MappingFragment StoreEntitySet="TableTopic">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="Meeting" ColumnName="Meeting" />
+                <ScalarProperty Name="Speaker" ColumnName="Speaker" />
+                <ScalarProperty Name="TimeInSeconds" ColumnName="TimeInSeconds" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

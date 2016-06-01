@@ -33,8 +33,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,12 +55,117 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Announcement.cs">
+      <DependentUpon>ToastmastersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Award.cs">
+      <DependentUpon>ToastmastersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AwardRecipient.cs">
+      <DependentUpon>ToastmastersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AwardType.cs">
+      <DependentUpon>ToastmastersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Due.cs">
+      <DependentUpon>ToastmastersModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Enums.cs" />
+    <Compile Include="Evaluation.cs">
+      <DependentUpon>ToastmastersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GrammarianReport.cs">
+      <DependentUpon>ToastmastersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GrammarianReportLine.cs">
+      <DependentUpon>ToastmastersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Manual.cs">
+      <DependentUpon>ToastmastersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Meeting.cs">
+      <DependentUpon>ToastmastersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MeetingAward.cs">
+      <DependentUpon>ToastmastersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MeetingAwardType.cs">
+      <DependentUpon>ToastmastersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MeetingParticipant.cs">
+      <DependentUpon>ToastmastersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MemberStatu.cs">
+      <DependentUpon>ToastmastersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OfficerRole.cs">
+      <DependentUpon>ToastmastersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OfficerService.cs">
+      <DependentUpon>ToastmastersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ParticipantRole.cs">
+      <DependentUpon>ToastmastersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentType.cs">
+      <DependentUpon>ToastmastersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Person.cs">
+      <DependentUpon>ToastmastersModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="Project.cs">
+      <DependentUpon>ToastmastersModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SelfCheckException.cs" />
+    <Compile Include="Speech.cs">
+      <DependentUpon>ToastmastersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TableTopic.cs">
+      <DependentUpon>ToastmastersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ToastmastersModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ToastmastersModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ToastmastersModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ToastmastersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ToastmastersModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ToastmastersModel.edmx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <EntityDeploy Include="ToastmastersModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ToastmastersModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="packages.config" />
+    <None Include="ToastmastersModel.edmx.diagram">
+      <DependentUpon>ToastmastersModel.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ToastmastersModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ToastmastersModel.edmx</DependentUpon>
+      <LastGenOutput>ToastmastersModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ToastmastersModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ToastmastersModel.edmx</DependentUpon>
+      <LastGenOutput>ToastmastersModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
